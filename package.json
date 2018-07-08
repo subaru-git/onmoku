@@ -4,6 +4,10 @@
   "description": "online mokumoku",
   "main": "index.js",
   "author": "subaru_m_",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subaru-git/onmoku.git"
+  },
   "license": "MIT",
   "private": false,
   "devDependencies": {
