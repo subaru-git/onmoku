@@ -16,14 +16,27 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['env', 'react'],
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env', 'react'],
+          },
         },
       },
-    }]
+      {
+        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[path][name]-[hash:8].[ext]'
+          }
+        }]
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 }

@@ -1,28 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Button from "@material-ui/core/Button";
-import { firebaseDb } from "./firebase";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import Routes from "./routes";
 
-const messagesRef = firebaseDb.ref("messages");
-
-const OnClick = () => {
-  messagesRef.push({
-    user_name: "test",
-    text: "test message"
-  });
-};
-const App = () => {
-  return (
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={() => {
-        OnClick();
-      }}
-    >
-      online mokumoku
-    </Button>
-  );
-};
-
-ReactDOM.render(<App />, document.getElementById("root"));
+const theme = createMuiTheme();
+ReactDOM.render(
+  <MuiThemeProvider theme={theme}>
+    <Routes />
+  </MuiThemeProvider>,
+  document.getElementById("root")
+);
